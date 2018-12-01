@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="bhavin" translate="label" sortOrder="400">
+            <label>Bhavin</label>
+        </tab>
+        <section id="bhavin_gdpr" translate="label" type="text" sortOrder="310" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>GDPR</label>
+            <tab>bhavin</tab>
+            <resource>Bhavin_GDPR::gdpr</resource>
+            <group id="general" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enable" translate="label comment" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Eneble</label>
+                    <comment>Enable/Disable GDPR Module.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
