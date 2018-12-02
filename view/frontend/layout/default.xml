@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="footer">
+            <block class="Magento\Newsletter\Block\Subscribe" name="form.subscribe" as="subscribe" before="-" template="Bhavin_GDPR::newsletter/subscribe.phtml">
+            	<block class="Bhavin\GDPR\Block\Gdpr\Agreements" name="subscription_gdpr" ifconfig="bhavin_gdpr/general/subscription_form" template="Bhavin_GDPR::gdpr/field.phtml">
+	                <arguments>
+	                    <argument name="display_area" xsi:type="string">subscription_form</argument>
+	                </arguments>
+	            </block>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

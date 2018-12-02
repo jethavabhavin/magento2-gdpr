@@ -17,9 +17,39 @@
             <resource>Bhavin_GDPR::gdpr</resource>
             <group id="general" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>General</label>
-                <field id="enable" translate="label comment" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Eneble</label>
-                    <comment>Enable/Disable GDPR Module.</comment>
+                <field id="contact_form" translate="label comment" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Eneble on Contact Form</label>
+                    <comment>Enable/Disable GDPR Module on Contact Form.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="checkout_shipping_form" translate="label comment" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Eneble on Checkout Shipping</label>
+                    <comment>Enable/Disable GDPR Module on Checkout Shipping Form.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="checkout_billing_form" translate="label comment" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Eneble on Checkout Billing</label>
+                    <comment>Enable/Disable GDPR Module on Checkout Billing Form.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="customer_registration_form" translate="label comment" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Eneble on Customer Registration</label>
+                    <comment>Enable/Disable GDPR Module on Customer Registration Form.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="customer_profile_form" translate="label comment" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Eneble on Customer Profile</label>
+                    <comment>Enable/Disable GDPR Module on Customer Profile Form.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="customer_address_form" translate="label comment" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Eneble on Customer Address</label>
+                    <comment>Enable/Disable GDPR Module on Customer Address Form.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="subscription_form" translate="label comment" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Eneble on Newsletter</label>
+                    <comment>Enable/Disable GDPR Module on Newsletter Form.</comment>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
             </group>

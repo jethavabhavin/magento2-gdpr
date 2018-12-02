@@ -9,7 +9,13 @@
     <default>
         <bhavin_gdpr>
             <general>
-                <enable>1</enable>
+                <checkout_shipping_form>1</checkout_shipping_form>
+                <checkout_billing_form>1</checkout_billing_form>
+                <customer_registration_form>1</customer_registration_form>
+                <customer_profile_form>1</customer_profile_form>
+                <customer_address_form>1</customer_address_form>
+                <subscription_form>1</subscription_form>
+                <contact_form>1</contact_form>
             </general>
         </bhavin_gdpr>
     </default>

@@ -9,4 +9,14 @@
     <type name="Magento\CheckoutAgreements\Block\Adminhtml\Agreement\Edit\Form">
         <plugin name="validate-guest-agreements" type="Bhavin\GDPR\Plugin\Block\Adminhtml\Agreement\Edit\Form"/>
     </type>
+    <type name="Magento\CheckoutAgreements\Block\Adminhtml\Agreement\Grid">
+        <plugin name="validate-guest-agreements" type="Bhavin\GDPR\Plugin\Block\Adminhtml\Agreement\Grid"/>
+    </type>
+	<type name="Magento\CheckoutAgreements\Model\AgreementsValidator">
+        <arguments>
+            <argument name="list" xsi:type="array">
+                <item name="checkoutagreements" xsi:type="object">\Bhavin\GDPR\Plugin\Model\CheckoutAgreements\AgreementsProvider</item>
+            </argument>
+        </arguments>
+    </type>
 </config>

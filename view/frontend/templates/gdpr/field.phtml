@@ -1,0 +1,47 @@
+<?php
+$agreements = $block->getAgreements(); 
+$displayArea = $block->getDiaplayArea(); 
+foreach ($agreements as $agreement) {
+	$id = $agreement->getId();
+	$checkboxText = $agreement->getCheckboxText();
+	$content = $agreement->getIsHtml()
+                ? $agreement->getContent()
+                : $block->escapeHtml($agreement->getContent());
+	$htmlid = $displayArea . "-" . $id;
+?>
+<div class="field choice <?=$htmlid?>">
+	<?php if($agreement->getMode() == \Magento\CheckoutAgreements\Model\AgreementModeOptions::MODE_MANUAL):?>
+    <input type="checkbox" name="gdpr[<?=$id?>]" required="" title="<?=$checkboxText?>" value="1" id="<?=$htmlid?>" class="checkbox">
+	<?php endif ?>
+    <label for="<?=$htmlid?>" class="label">
+    	<span>
+    		<a href="#">
+	    	<?=$checkboxText?>
+	    	</a>	
+    	</span>
+    </label>
+    <div class="agreement-popup modal-<?=$htmlid?>"  style="display: none">
+    	<div class="content">
+    		<?=$content?>
+
+    	</div>
+    </div>
+</div>
+<script type="text/javascript">
+require(['jquery','Magento_Ui/js/modal/modal'],function($,modal){
+	var options = {
+        type: 'popup',
+        responsive: true,
+        innerScroll: true,
+        //title: 'Agreement',
+    };
+    var popup = modal(options, $('.modal-<?=$htmlid?>'));
+    $("label[for='<?=$htmlid?>'] a").on("click",function(){
+        $('.modal-<?=$htmlid?>').modal('openModal');
+        return false;
+    });
+})
+</script>
+<?php 
+}
+?>
