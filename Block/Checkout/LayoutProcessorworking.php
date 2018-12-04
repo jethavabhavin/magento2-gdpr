@@ -21,15 +21,10 @@ class LayoutProcessor implements \Magento\Checkout\Block\Checkout\LayoutProcesso
 
 		$shippingGdprField = [
 			'component' => 'Bhavin_GDPR/js/view/checkout-shipping-agreements',
-			'config' => [
-				'customScope' => 'shippingAddress.custom_attributes',
-			],
-			'dataScope' => 'shippingAddress.custom_attributes' . '.' . $shippingAgreementAttributeCode,
-			'provider' => 'checkoutProvider',
-			'label' => __('Agreements'),
-			'validation' => [
-				'required-entry' => true,
-			],
+		];
+
+		$billingGdprField = [
+			'component' => 'Bhavin_GDPR/js/view/checkout-billing-agreements',
 		];
 
 		$jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']['shippingAddress']['children']['shipping-address-fieldset']['children'][$shippingAgreementAttributeCode] = $shippingGdprField;
@@ -37,23 +32,13 @@ class LayoutProcessor implements \Magento\Checkout\Block\Checkout\LayoutProcesso
 		$configuration = $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['payments-list']['children'];
 		foreach ($configuration as $paymentGroup => $groupConfig) {
 			if (isset($groupConfig['component']) AND $groupConfig['component'] === 'Magento_Checkout/js/view/billing-address') {
-				$dataScopePrefix = $groupConfig['dataScopePrefix'];
-				$billingGdprField = [
-					'component' => 'Bhavin_GDPR/js/view/checkout-billing-agreements',
-					'config' => [
-						'customScope' => "{$dataScopePrefix}.custom_attributes",
-					],
-					'dataScope' => "{$dataScopePrefix}.custom_attributes" . '.' . $billingAgreementAttributeCode,
-					'provider' => 'checkoutProvider',
-					'label' => __('Agreements'),
-					'validation' => [
-						'required-entry' => true,
-					],
-				];
-				$jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['payments-list']['children'][$paymentGroup]['children']['form-fields']['children'][$billingAgreementAttributeCode] = $billingGdprField;
+
+				$jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+				['payment']['children']['payments-list']['children'][$paymentGroup]['children']['form-fields']['children'][$billingAgreementAttributeCode] = $billingGdprField;
 			}
 		}
-
+		/*echo "<pre>";
+		print_r($jsLayout);exit;*/
 		return $jsLayout;
 	}
 

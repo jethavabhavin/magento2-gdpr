@@ -4,7 +4,7 @@
  */
 
 var config = {
-     map: {
+    map: {
         '*': {
             'Magento_CheckoutAgreements/js/view/checkout-agreements':'Bhavin_GDPR/js/view/checkout-agreements'
         }

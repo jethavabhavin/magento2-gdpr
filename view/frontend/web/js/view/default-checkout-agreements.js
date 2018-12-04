@@ -6,8 +6,9 @@
 define([
     'ko',
     'jquery',
-    'uiComponent',
-    'Magento_CheckoutAgreements/js/model/agreements-modal'
+    //'uiComponent',
+    'Magento_Ui/js/form/element/abstract',
+    'Bhavin_GDPR/js/model/agreements-modal'
 ], function (ko, $, Component, agreementsModal) {
     'use strict';
 
@@ -17,7 +18,8 @@ define([
 
     return Component.extend({
         defaults: {
-            template: 'Magento_CheckoutAgreements/checkout/checkout-agreements'
+            template: 'ui/form/field',
+            elementTmpl: 'Bhavin_GDPR/checkout/checkout-agreements'
         },
         isVisible: agreementsConfig.isEnabled,
         agreements: agreementsConfig.agreements,

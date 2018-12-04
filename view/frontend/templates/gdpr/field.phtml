@@ -28,12 +28,12 @@ foreach ($agreements as $agreement) {
     </div>
 </div>
 <script type="text/javascript">
-require(['jquery','Magento_Ui/js/modal/modal'],function($,modal){
+require(['jquery','Magento_Ui/js/modal/modal','mage/translate'],function($,modal,$t){
 	var options = {
         type: 'popup',
         responsive: true,
         innerScroll: true,
-        //title: 'Agreement',
+        title: $t('Agreement'),
     };
     var popup = modal(options, $('.modal-<?=$htmlid?>'));
     $("label[for='<?=$htmlid?>'] a").on("click",function(){
