@@ -52,6 +52,11 @@
                     <comment>Enable/Disable GDPR Module on Newsletter Form.</comment>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
+                <field id="product_review_form" translate="label comment" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Eneble on Product Review</label>
+                    <comment>Enable/Disable GDPR Module on Product Review Form.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
             </group>
         </section>
     </system>

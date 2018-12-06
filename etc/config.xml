@@ -16,6 +16,7 @@
                 <customer_address_form>1</customer_address_form>
                 <subscription_form>1</subscription_form>
                 <contact_form>1</contact_form>
+                <product_review_form>1</product_review_form>
             </general>
         </bhavin_gdpr>
     </default>

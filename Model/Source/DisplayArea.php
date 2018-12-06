@@ -23,6 +23,7 @@ class DisplayArea implements \Magento\Framework\Option\ArrayInterface {
 	const CUSTOMER_ADDRESS = 'customer_address_form';
 	const CUSTOMER_SUBSCRIPTION = 'subscription_form';
 	const CUSTOMER_CONTACT_FORM = 'contact_form';
+	const PRODUCT_REVIEW_FORM = 'product_review_form';
 	/**
 	 * @var string[]
 	 */
@@ -35,6 +36,7 @@ class DisplayArea implements \Magento\Framework\Option\ArrayInterface {
 		Self::CUSTOMER_ADDRESS => "Customer Adress Form",
 		Self::CUSTOMER_SUBSCRIPTION => "Subscription Form",
 		Self::CUSTOMER_CONTACT_FORM => "Contact Form",
+		Self::PRODUCT_REVIEW_FORM => "Product Review Form",
 	];
 
 	/**

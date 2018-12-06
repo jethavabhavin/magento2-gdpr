@@ -16,7 +16,7 @@ define([
     	defaults: {
             template : 'ui/form/field',
             elementTmpl : 'Magento_CheckoutAgreements/checkout/checkout-agreements'
-        }
+        },
         isVisible: agreementsConfig.isEnabledShipping,
         agreements: agreementsConfig.agreements.checkout_shipping_form,
     });
