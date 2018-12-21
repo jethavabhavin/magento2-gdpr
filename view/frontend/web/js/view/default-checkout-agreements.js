@@ -21,12 +21,12 @@ define([
             template: 'ui/form/field',
             elementTmpl: 'Bhavin_GDPR/checkout/checkout-agreements'
         },
+        agreementBlockId:"",
         isVisible: agreementsConfig.isEnabled,
         agreements: agreementsConfig.agreements,
         modalTitle: ko.observable(null),
         modalContent: ko.observable(null),
         modalWindow: null,
-
         /**
          * Checks if agreement required
          *
@@ -35,16 +35,16 @@ define([
         isAgreementRequired: function (element) {
             return element.mode == agreementManualMode; //eslint-disable-line eqeqeq
         },
-
         /**
          * Show agreement content in modal
          *
          * @param {Object} element
          */
         showContent: function (element) {
+            console.log(element)
             this.modalTitle(element.checkboxText);
             this.modalContent(element.content);
-            agreementsModal.showModal();
+            agreementsModal.showModal("#"+this.agreementBlockId);
         },
 
         /**

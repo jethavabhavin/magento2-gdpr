@@ -85,4 +85,12 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper {
 	public function isEnableOnNewsletter() {
 		return $this->getConfig(DisplayArea::CUSTOMER_SUBSCRIPTION);
 	}
+	/**
+	 * Check module enable/disable on Product Review form
+	 *
+	 * @return bool
+	 */
+	public function isEnableOnProductReview() {
+		return $this->getConfig(DisplayArea::PRODUCT_REVIEW_FORM);
+	}
 }

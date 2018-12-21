@@ -4,8 +4,11 @@
  */
 
 define([
-    'Bhavin_GDPR/js/view/default-checkout-agreements'
-], function (AgreementsView) {
+    'jquery',
+    'Bhavin_GDPR/js/view/default-checkout-agreements',
+    'Magento_Checkout/js/model/quote',
+    'Magento_Checkout/js/checkout-data'
+], function ($, AgreementsView, quote, checkoutData) {
     'use strict';
 
     var checkoutConfig = window.checkoutConfig,
@@ -13,11 +16,8 @@ define([
         agreementsConfig = checkoutConfig ? checkoutConfig.checkoutAgreements : {};
 
     return AgreementsView.extend({
-    	defaults: {
-            template : 'ui/form/field',
-            elementTmpl : 'Magento_CheckoutAgreements/checkout/checkout-agreements'
-        },
-        isVisible: agreementsConfig.isEnabledShipping,
+    	isVisible: agreementsConfig.isEnabledShipping,
         agreements: agreementsConfig.agreements.checkout_shipping_form,
+        agreementBlockId:"checkout-agreements-modal-shipping",
     });
 });

@@ -45,8 +45,15 @@ define([
         },
 
         /** Show login popup window */
-        showModal: function () {
-            $(this.modalWindow).modal('openModal');
+        showModal: function (element) {
+            if(element)
+            {
+                $(element).modal('openModal');    
+            }
+            else{
+                $(this.modalWindow).modal('openModal');
+            }
+            
         }
     };
 });

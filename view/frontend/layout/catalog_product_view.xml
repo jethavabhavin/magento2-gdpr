@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="product.review.form">
+            <action method="setTemplate">
+		        <argument name="template" xsi:type="string">Bhavin_GDPR::product/review/form.phtml</argument>
+		    </action>
+		    <block class="Bhavin\GDPR\Block\Gdpr\Agreements" name="product-review-form" ifconfig="bhavin_gdpr/general/product_review_form" template="Bhavin_GDPR::gdpr/field.phtml">
+                <arguments>
+                    <argument name="display_area" xsi:type="string">product_review_form</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

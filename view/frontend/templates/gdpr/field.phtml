@@ -1,6 +1,7 @@
 <?php
 $agreements = $block->getAgreements(); 
-$displayArea = $block->getDiaplayArea(); 
+$displayArea = $block->getDisplayArea();
+ 
 foreach ($agreements as $agreement) {
 	$id = $agreement->getId();
 	$checkboxText = $agreement->getCheckboxText();
@@ -29,24 +30,28 @@ foreach ($agreements as $agreement) {
 </div>
 <script type="text/javascript">
 require(['jquery','Magento_Ui/js/modal/modal','mage/translate'],function($,modal,$t){
-	var options = {
-        type: 'popup',
-        responsive: true,
-        innerScroll: true,
-        title: $t('Agreement'),
-         buttons: [{
-            text: $.mage.__('Agree'),
-            class: 'action submit primary',
-            click: function () {
-                this.closeModal();
-            }
-        }]
-    };
-    var popup = modal(options, $('.modal-<?=$htmlid?>'));
-    $("label[for='<?=$htmlid?>'] a").on("click",function(){
-        $('.modal-<?=$htmlid?>').modal('openModal');
-        return false;
-    });
+    setTimeout(function(){
+
+        var options = {
+            type: 'popup',
+            responsive: true,
+            innerScroll: true,
+            title: $t('Agreement'),
+             buttons: [{
+                text: $.mage.__('Agree'),
+                class: 'action submit primary',
+                click: function () {
+                    this.closeModal();
+                }
+            }]
+        };
+        var popup = modal(options, $('.modal-<?=$htmlid?>'));
+        $("label[for='<?=$htmlid?>'] a").on("click",function(){
+
+            $('.modal-<?=$htmlid?>').modal('openModal');
+            return false;
+        });  
+    },1000)
 })
 </script>
 <?php 

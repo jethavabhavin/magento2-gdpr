@@ -15,5 +15,6 @@ define([
     return AgreementsView.extend({
         isVisible: agreementsConfig.isEnabledBilling,
         agreements: agreementsConfig.agreements.checkout_billing_form,
+        agreementBlockId:"checkout-agreements-modal-billing",
     });
 });
