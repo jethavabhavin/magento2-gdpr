@@ -27,6 +27,23 @@ define([
         modalTitle: ko.observable(null),
         modalContent: ko.observable(null),
         modalWindow: null,
+
+        /**
+         * @return {exports}
+         */
+        initialize: function () {
+            this._super();
+            var require = false;
+           
+            $.each(this.agreements,function(){
+                if(this.mode == 1)
+                {
+                    require = true;
+                }
+            })
+            if(!require)
+                this.validation='';
+        },
         /**
          * Checks if agreement required
          *
