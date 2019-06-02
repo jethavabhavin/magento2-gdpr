@@ -41,7 +41,7 @@ class LayoutProcessor implements \Magento\Checkout\Block\Checkout\LayoutProcesso
 					],
 				];
 			}
-		}
+		}	
 		if ($helper->isEnableOnBilling()) {
 			$agreements = $om->create("Magento\CheckoutAgreements\Model\ResourceModel\Agreement\Collection");
 			$agreements->addFieldToFilter("display_area",DisplayArea::CHECKOUT_BILLING);
