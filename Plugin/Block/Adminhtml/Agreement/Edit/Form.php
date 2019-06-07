@@ -24,6 +24,7 @@ class Form {
 		\Magento\Framework\Data\Form $formArg
 	) {
 		$agreement = $this->_registry->registry('checkout_agreement');
+		$formArg->getElement('mode')->setData("note", "Automatic agreement does not have checkbox in frontend and auto forcefully agree by the system. Manual agreement have a checkbox and user have checkbox in frontend");
 
 		$fieldset = $formArg->addFieldset(
 			'display_fieldset',
