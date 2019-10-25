@@ -10,7 +10,7 @@ foreach ($agreements as $agreement) {
                 : $block->escapeHtml($agreement->getContent());
 	$htmlid = $displayArea . "-" . $id;
 ?>
-<div class="field choice <?=$htmlid?>">
+<div class="field choice termsandconditions <?=$htmlid?>">
 	<?php if($agreement->getMode() == \Magento\CheckoutAgreements\Model\AgreementModeOptions::MODE_MANUAL):?>
     <input type="checkbox" name="gdpr[<?=$id?>]" required="" title="<?=$checkboxText?>" value="1" id="<?=$htmlid?>" class="checkbox">
 	<?php endif ?>

@@ -1,0 +1,59 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+	.termsandconditions {
+		.label {
+			a {
+				font-weight: 600;
+				color: #333;
+			}
+
+		}
+	}
+
+	.block.newsletter {
+		.termsandconditions {
+			margin-top: 5px !important;
+			input {
+				height: 30px;
+	    		float: left;
+	    		position: relative;
+	    		top: -6px;
+    		}
+    		.label{
+				display: block;
+	    		width: auto;
+	    		height: auto;
+	    		position: relative;
+			}
+		}
+	}
+
+	.checkout-agreements {
+		.action.action-show {
+			background: transparent;
+    		border: 0;
+    		box-shadow: none;
+    		padding-left: 0;
+		}
+	}
+
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+	
+}

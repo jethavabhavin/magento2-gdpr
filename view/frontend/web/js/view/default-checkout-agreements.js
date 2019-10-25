@@ -6,7 +6,6 @@
 define([
     'ko',
     'jquery',
-    //'uiComponent',
     'Magento_Ui/js/form/element/abstract',
     'Bhavin_GDPR/js/model/agreements-modal'
 ], function (ko, $, Component, agreementsModal) {

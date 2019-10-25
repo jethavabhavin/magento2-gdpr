@@ -32,10 +32,15 @@ class AgreementsConfigProvider extends \Magento\CheckoutAgreements\Model\Agreeme
 
 		$isShippingAgreementsEnabled = $helper->isEnableOnBilling();
 
-		$agreementsList = $this->checkoutAgreementsRepository->getList();
+		$om = \Magento\Framework\App\ObjectManager::getInstance();
+		
+
+		$agreementsList = $om->create("Magento\CheckoutAgreements\Model\ResourceModel\Agreement\Collection");
+
 		$agreementConfiguration['isEnabled'] = (bool) ($isAgreementsEnabled && count($agreementsList) > 0);
 		$agreementConfiguration['isEnabledShipping'] = (bool) ($isBillingAgreementsEnabled && count($agreementsList) > 0);
 		$agreementConfiguration['isEnabledBilling'] = (bool) ($isShippingAgreementsEnabled && count($agreementsList) > 0);
+		$agreementConfiguration['agreements']=[];
 
 		foreach ($agreementsList as $agreement) {
 			$agreementConfiguration['agreements'][$agreement->getDisplayArea()][] = [

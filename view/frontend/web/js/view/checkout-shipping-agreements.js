@@ -14,7 +14,7 @@ define([
     var checkoutConfig = window.checkoutConfig,
         agreementManualMode = 1,
         agreementsConfig = checkoutConfig ? checkoutConfig.checkoutAgreements : {};
-
+console.log(agreementsConfig);
     return AgreementsView.extend({
     	isVisible: agreementsConfig.isEnabledShipping,
         agreements: agreementsConfig.agreements.checkout_shipping_form,
