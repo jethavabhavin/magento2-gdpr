@@ -25,6 +25,7 @@ define([
         agreements: agreementsConfig.agreements,
         modalTitle: ko.observable(null),
         modalContent: ko.observable(null),
+		contentHeight: ko.observable(null),
         modalWindow: null,
 
         /**
@@ -33,7 +34,7 @@ define([
         initialize: function () {
             this._super();
             var require = false;
-           
+
             $.each(this.agreements,function(){
                 if(this.mode == 1)
                 {
@@ -60,6 +61,7 @@ define([
             console.log(element)
             this.modalTitle(element.checkboxText);
             this.modalContent(element.content);
+			this.contentHeight(element.contentHeight ? element.contentHeight : 'auto');
             agreementsModal.showModal("#"+this.agreementBlockId);
         },
 

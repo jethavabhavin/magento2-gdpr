@@ -110,6 +110,7 @@ class AgreementsConfigProvider extends \Magento\CheckoutAgreements\Model\Agreeme
 				'checkboxText' => $agreement->getCheckboxText(),
 				'mode' => $agreement->getMode(),
 				'agreementId' => $agreement->getAgreementId(),
+				'contentHeight' => $agreement->getContentHeight()
 			];
 		}
 		return $agreementConfiguration;
