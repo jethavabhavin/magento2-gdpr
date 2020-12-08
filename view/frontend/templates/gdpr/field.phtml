@@ -1,7 +1,7 @@
 <?php
-$agreements = $block->getAgreements(); 
+$agreements = $block->getAgreements();
 $displayArea = $block->getDisplayArea();
- 
+
 foreach ($agreements as $agreement) {
 	$id = $agreement->getId();
 	$checkboxText = $agreement->getCheckboxText();
@@ -18,7 +18,7 @@ foreach ($agreements as $agreement) {
     	<span>
     		<a href="#">
 	    	<?=$checkboxText?>
-	    	</a>	
+	    	</a>
     	</span>
     </label>
     <div class="agreement-popup modal-<?=$htmlid?>"  style="display: none">
@@ -50,10 +50,10 @@ require(['jquery','Magento_Ui/js/modal/modal','mage/translate'],function($,modal
 
             $('.modal-<?=$htmlid?>').modal('openModal');
             return false;
-        });  
+        });
     },1000)
 })
 </script>
-<?php 
+<?php
 }
 ?>

@@ -8,11 +8,66 @@ namespace Bhavin\GDPR\Model\Checkout;
 use Magento\CheckoutAgreements\Model\AgreementsProvider;
 use Magento\Framework\App\ObjectManager;
 use Magento\Store\Model\ScopeInterface;
+use Magento\CheckoutAgreements\Model\Api\SearchCriteria\ActiveStoreAgreementsFilter;
+use Magento\Checkout\Model\ConfigProviderInterface;
 
 /**
  * Configuration provider for GiftMessage rendering on "Shipping Method" step of checkout.
  */
 class AgreementsConfigProvider extends \Magento\CheckoutAgreements\Model\AgreementsConfigProvider {
+
+	    /**
+     * @var \Magento\Framework\App\Config\ScopeConfigInterface
+     */
+    protected $scopeConfiguration;
+
+    /**
+     * @var \Magento\CheckoutAgreements\Api\CheckoutAgreementsRepositoryInterface
+     */
+    protected $checkoutAgreementsRepository;
+
+    /**
+     * @var \Magento\Framework\Escaper
+     */
+    protected $escaper;
+
+    /**
+     * @var \Magento\CheckoutAgreements\Api\CheckoutAgreementsListInterface
+     */
+    private $checkoutAgreementsList;
+
+    /**
+     * @var ActiveStoreAgreementsFilter
+     */
+    private $activeStoreAgreementsFilter;
+
+    /**
+     * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfiguration
+     * @param \Magento\CheckoutAgreements\Api\CheckoutAgreementsRepositoryInterface $checkoutAgreementsRepository
+     * @param \Magento\Framework\Escaper $escaper
+     * @param \Magento\CheckoutAgreements\Api\CheckoutAgreementsListInterface|null $checkoutAgreementsList
+     * @param ActiveStoreAgreementsFilter|null $activeStoreAgreementsFilter
+     * @codeCoverageIgnore
+     */
+    public function __construct(
+        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfiguration,
+        \Magento\CheckoutAgreements\Api\CheckoutAgreementsRepositoryInterface $checkoutAgreementsRepository,
+        \Magento\Framework\Escaper $escaper,
+        \Magento\CheckoutAgreements\Api\CheckoutAgreementsListInterface $checkoutAgreementsList = null,
+        ActiveStoreAgreementsFilter $activeStoreAgreementsFilter = null
+    ) {
+        $this->scopeConfiguration = $scopeConfiguration;
+        $this->checkoutAgreementsRepository = $checkoutAgreementsRepository;
+        $this->escaper = $escaper;
+        $this->checkoutAgreementsList = $checkoutAgreementsList ?: ObjectManager::getInstance()->get(
+            \Magento\CheckoutAgreements\Api\CheckoutAgreementsListInterface::class
+        );
+        $this->activeStoreAgreementsFilter = $activeStoreAgreementsFilter ?: ObjectManager::getInstance()->get(
+            ActiveStoreAgreementsFilter::class
+        );
+    }
+
+
 	/**
 	 * Returns agreements config
 	 *
@@ -32,10 +87,15 @@ class AgreementsConfigProvider extends \Magento\CheckoutAgreements\Model\Agreeme
 
 		$isShippingAgreementsEnabled = $helper->isEnableOnBilling();
 
-		$om = \Magento\Framework\App\ObjectManager::getInstance();
-		
+		//$om = \Magento\Framework\App\ObjectManager::getInstance();
 
-		$agreementsList = $om->create("Magento\CheckoutAgreements\Model\ResourceModel\Agreement\Collection");
+		//$agreementsList = $om->create("Magento\CheckoutAgreements\Model\ResourceModel\Agreement\Collection");
+
+		//chpock
+		 $agreementsList = $this->checkoutAgreementsList->getList(
+            $this->activeStoreAgreementsFilter->buildSearchCriteria()
+        );
+
 
 		$agreementConfiguration['isEnabled'] = (bool) ($isAgreementsEnabled && count($agreementsList) > 0);
 		$agreementConfiguration['isEnabledShipping'] = (bool) ($isBillingAgreementsEnabled && count($agreementsList) > 0);
@@ -50,9 +110,9 @@ class AgreementsConfigProvider extends \Magento\CheckoutAgreements\Model\Agreeme
 				'checkboxText' => $agreement->getCheckboxText(),
 				'mode' => $agreement->getMode(),
 				'agreementId' => $agreement->getAgreementId(),
+				'contentHeight' => $agreement->getContentHeight()
 			];
 		}
-
 		return $agreementConfiguration;
 	}
 }
