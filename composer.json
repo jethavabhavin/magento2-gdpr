@@ -2,7 +2,7 @@
     "name": "bhavin/module-gdpr",
     "description": "Magento GDPR ",
     "require": {
-        "php": "~7.0.13|~7.1.0|~7.2.0",
+        "php": "~7.0.13|~7.1.0|~7.2.0|~7.3.0|~7.4.0|~8.1.0|~8.2.0",
         "magento/module-checkout-agreements": "100.3.*",
         "magento/framework": "102.0.*",
         "magento/module-ui": "101.1.*"
